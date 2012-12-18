@@ -2,7 +2,7 @@ import pymongo
 import argparse
 import os.path
 import resource
-import fincore
+from ftools import fincore
 import glob
 from collections import defaultdict
 
@@ -56,7 +56,7 @@ def main():
             filenum = int(filenum)
 
             fd = file(f)
-            vec = fincore.fincore(fd.fileno())
+            vec = fincore(fd.fileno())
             fd.close()
 
             for i, pg in enumerate(vec):
