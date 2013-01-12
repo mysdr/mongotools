@@ -4,6 +4,7 @@ import os.path
 import resource
 from ftools import fincore
 import glob
+import sys
 from collections import defaultdict
 
 def main():
@@ -29,6 +30,10 @@ def main():
             return False
 
     dbpath = args.dbpath
+
+    if not os.path.exists(dbpath):
+        print "dbpath %s does not appear to exist" % dbpath
+        return False
 
     DB_FILE_PTRN = '{0}/{1}/{1}.[0-9]*' if args.directoryperdb else \
                    '{0}/{1}.[0-9]*'
@@ -133,4 +138,5 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    if not main():
+        sys.exit(1)
