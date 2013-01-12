@@ -16,9 +16,18 @@ def main():
     parser.add_argument('--directoryperdb', action='store_true',
                         help='path to data dir')
     parser.add_argument('--num', '-n', default=10, help='number of collections')
+    parser.add_argument('--username', '-u', default=None, help='admin DB username')
+    parser.add_argument('--password', default=10, help='admin DB password')
     args = parser.parse_args()
 
     conn = pymongo.Connection(args.connection)
+
+    if args.username:
+        result = conn.admin.authenticate(args.username, args.password)
+        if not result:
+            print "Failed to authenticate to admin DB with those credentials"
+            return False
+
     dbpath = args.dbpath
 
     DB_FILE_PTRN = '{0}/{1}/{1}.[0-9]*' if args.directoryperdb else \
