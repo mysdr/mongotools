@@ -21,8 +21,8 @@ For more information, see http://eng.wish.com/mongomem-memory-usage-by-collectio
 
 If you run into any troubles here, leave a comment or ping me at adam@contextlogic.com. I've only tried installing this on a couple machines here, so there could be problems I missed.
 
-# Usage
-#
+## Usage
+
 MongoMem is pretty simple to use. You have to run it on the same server as your `mongod` since it needs to be able to read the mongo data files directly (so you may need to run it as root or your mongodb user, depending on how your permissions are setup). It's safe to run against a live production site (just makes a few cheap syscalls, doesn't actually touch data).
 
 With that out of the way, usage is:
