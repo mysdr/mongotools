@@ -18,13 +18,14 @@ MongoMem is pretty simple to use. You have to run it on the same server as your 
 
 With that out of the way, usage is:
 
-    mongomem --dbpath DBPATH [--num NUM] [--directoryperdb] [--connection CONN] 
+    mongomem --dbpath DBPATH [--num NUM] [--directoryperdb] [--connection CONN] [--username USER --password PASS]
     
 
 *   `DBPATH`: path to your mongo data files (`/var/lib/mongodb/` is mongo's default location for this). 
 *   `NUM`: show stats for the top N collections (by current memory usage)
 *   Add `--directoryperdb` if you're using that option to start `mongod`. 
 *   `CONN`: pymongo connection string ("localhost" is the default which should pretty much always work, unless you're running a port other than 27017) 
+*   `USER` / `PASS`: Credentials for your `admin` DB, if authentication is enabled
 
 It'll take up to a couple minutes to run depending on your data size then it'll print a report of the top collections. Don't worry if you see a few warnings about some lengths not being multiples of page size. Unless there are thousands of those warnings, it won't really impact your results.
 
