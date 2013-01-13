@@ -10,12 +10,11 @@ setup(name='mongomem',
     url="http://www.github.com/ContextLogic/mongodbtools",
 
     ext_modules=[
-          Extension('ftools', ['python-ftools/ftools.c']),
+          Extension('ftools', ['src/python-ftools/ftools.c']),
     ],
-    entry_points={
-        'console_scripts': [
-            'mongomem = mongomem:main'
-        ]
-    },
-    scripts=['mongomem.py']
+    install_requires=[
+        'pymongo==2.4.1',
+        'argparse==1.2.1 ',
+    ],
+    scripts=['src/mongomem.py']
 )
