@@ -13,7 +13,7 @@ setup(name='mongomem',
           Extension('ftools', ['src/python-ftools/ftools.c']),
     ],
     install_requires=[
-        'pymongo==2.4.1',
+        'pymongo',
         'argparse==1.2.1 ',
     ],
     scripts=['src/mongomem.py']
