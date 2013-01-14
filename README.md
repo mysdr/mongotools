@@ -15,11 +15,9 @@ For more information, see http://eng.wish.com/mongomem-memory-usage-by-collectio
 
 ## Installation
 
-1.  Download the code from GitHub
-2.  `pip install -r pip-requirements` (it's just `argparse` and `pymongo`; any version of either is probably fine)
-3.  Run `sudo python setup.py install` (makes `mongomem` in `/usr/local/bin`, so you'll probably need `sudo` here)
+`sudo pip install mongomem`
 
-If you run into any troubles here, leave a comment or ping me at adam@contextlogic.com. I've only tried installing this on a couple machines here, so there could be problems I missed.
+If you run into any troubles here, feel free to ping me at adam@wish.com.
 
 ## Usage
 
