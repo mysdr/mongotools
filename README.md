@@ -17,7 +17,7 @@ For more information, see http://eng.wish.com/mongomem-memory-usage-by-collectio
 
 `sudo pip install mongomem`
 
-## Ubuntu 14.04.1 LTS specific
+### Ubuntu 14.04.1 LTS specific
 - `sudo apt-get install git`
 - `sudo apt-get install python-pip`
 - `sudo apt-get install build-essential python-dev`
