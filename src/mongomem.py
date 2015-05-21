@@ -21,7 +21,7 @@ def main():
     parser.add_argument('--password', default=10, help='admin DB password')
     args = parser.parse_args()
 
-    conn = pymongo.Connection(args.connection)
+    conn = pymongo.MongoClient(args.connection)
 
     if args.username:
         result = conn.admin.authenticate(args.username, args.password)
