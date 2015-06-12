@@ -1,3 +1,25 @@
+#!/bin/bash
+
+echo "Starting setup...."
+echo ""
+echo ""
+
+# Install necessary pre-requisite packages
+sudo apt-get install git
+sudo apt-get install python-pip
+sudo apt-get install build-essential python-dev
+
+# Get the repo files
+cd /home/ubuntu
+mkdir mongomem_source
+cd mongomem_source
+git clone https://github.com/ContextLogic/mongotools.git
+
+# Now changes what's needed and run the install
+cd mongotools/src
+
+# Here doc out the file w/ the change that's not in the git repo yet
+cat <<EOE >mongomem.py
 import pymongo
 import argparse
 import os.path
@@ -21,6 +43,7 @@ def main():
     parser.add_argument('--password', default=10, help='admin DB password')
     args = parser.parse_args()
 
+    #conn = pymongo.Connection(args.connection)
     conn = pymongo.MongoClient(args.connection)
 
     if args.username:
@@ -140,3 +163,12 @@ def main():
 if __name__ == "__main__":
     if not main():
         sys.exit(1)
+EOE
+
+# go up a directory and setup the binary file
+cd ..
+sudo python setup.py install
+
+echo "Done with the setup...."
+
+exit 0
